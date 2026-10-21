@@ -36,11 +36,12 @@
             lblResult = new Label();
             label1 = new Label();
             label3 = new Label();
+            btnClear = new Button();
             SuspendLayout();
             // 
             // btnResult
             // 
-            btnResult.Location = new Point(191, 360);
+            btnResult.Location = new Point(186, 350);
             btnResult.Margin = new Padding(3, 4, 3, 4);
             btnResult.Name = "btnResult";
             btnResult.Size = new Size(137, 68);
@@ -75,6 +76,7 @@
             txtFirstNum.Name = "txtFirstNum";
             txtFirstNum.Size = new Size(263, 26);
             txtFirstNum.TabIndex = 3;
+            txtFirstNum.KeyPress += txtFirstNum_KeyPress;
             // 
             // txtSecondNum
             // 
@@ -84,6 +86,7 @@
             txtSecondNum.Name = "txtSecondNum";
             txtSecondNum.Size = new Size(263, 26);
             txtSecondNum.TabIndex = 4;
+            txtSecondNum.KeyPress += txtSecondNum_KeyPress;
             // 
             // lblResult
             // 
@@ -114,11 +117,22 @@
             label3.TabIndex = 7;
             label3.Text = "Subtraction";
             // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(363, 358);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 52);
+            btnClear.TabIndex = 8;
+            btnClear.Text = "C";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(505, 539);
+            Controls.Add(btnClear);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(lblResult);
@@ -131,6 +145,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
+            KeyPress += Form1_KeyPress;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -145,5 +160,6 @@
         private Label lblResult;
         private Label label1;
         private Label label3;
+        private Button btnClear;
     }
 }
