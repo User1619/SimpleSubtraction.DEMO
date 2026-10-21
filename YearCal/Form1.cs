@@ -9,7 +9,8 @@ namespace YearCal
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-
+            double num1;
+            double num2;
 
             if (txtFirstNum.Text == "" || txtSecondNum.Text == "")
             {
@@ -17,24 +18,20 @@ namespace YearCal
                 MessageBox.Show("Please enter both numbers");
 
             }
-            
+
             else
             {
-
-                SubtractOP sub = new SubtractOP();
-                double num1;
-                double num2;
-
-
                 if (!double.TryParse(txtFirstNum.Text, out num1) || !double.TryParse(txtSecondNum.Text, out num2))
                 {
+
                     MessageBox.Show("Invalid Input");
-                    return;
+                    
                 }
                 else
                 {
-                    double result = sub.Sub(num1, num2);
-                    
+                    SubtractOP sub = new SubtractOP();
+                    double result = sub.Subtract(num1, num2);
+
                     if (result <= 0)
                     {
                         txtFirstNum.Clear();
@@ -45,9 +42,9 @@ namespace YearCal
                     else
                     {
                         lblResult.Text = result.ToString();
-                        
+
                     }
-                   
+
                 }
 
             }
@@ -60,12 +57,36 @@ namespace YearCal
 
         private void txtFirstNum_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            //{
+            //    e.Handled = true;
+            //}
 
+            //// Allow only one decimal point
+            //TextBox txt = (TextBox)sender;
+
+            //if (e.KeyChar == '.' && txt.Text.Contains("."))
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void txtSecondNum_KeyPress(object sender, KeyPressEventArgs e)
         {
+      //      if (!char.IsControl(e.KeyChar) &&
+      //!char.IsDigit(e.KeyChar) &&
+      //e.KeyChar != '.')
+      //      {
+      //          e.Handled = true;
+      //      }
 
+      //      // Allow only one decimal point
+      //      TextBox txt = (TextBox)sender;
+
+      //      if (e.KeyChar == '.' && txt.Text.Contains("."))
+      //      {
+      //          e.Handled = true;
+      //      }
 
         }
 
@@ -74,6 +95,11 @@ namespace YearCal
             txtFirstNum.Clear();
             txtSecondNum.Clear();
             lblResult.Text = string.Empty;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
